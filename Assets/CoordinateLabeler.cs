@@ -13,6 +13,7 @@ public class CoordinateLabeler : MonoBehaviour
     void Awake()
     {
         label = GetComponent<TextMeshPro>();
+        currentCoordinates();
     }
 
 
@@ -21,14 +22,20 @@ public class CoordinateLabeler : MonoBehaviour
     {
         if(!Application.isPlaying)
         {
-            displayCurrentCoordinates();
+            currentCoordinates();
+            updateObjectName();
         }
     }
 
-    void displayCurrentCoordinates()
+    void currentCoordinates()
     {
-        coordinates.x = Mathf.RoundToInt(transform.parent.position.x);
-        coordinates.y = Mathf.RoundToInt(transform.parent.position.z);
+        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
+        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
         label.text = coordinates.x + "," + coordinates.y;
+    }
+
+    void updateObjectName()
+    {
+        transform.parent.name = coordinates.ToString();
     }
 }
