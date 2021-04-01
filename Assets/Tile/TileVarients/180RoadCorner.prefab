@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2694166708487971930, guid: f2c22899d0ce4ba4a86c4dc78f8b7ca0, type: 3}
+      propertyPath: isPlacable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5185062549287596096, guid: f2c22899d0ce4ba4a86c4dc78f8b7ca0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5185062549287596099, guid: f2c22899d0ce4ba4a86c4dc78f8b7ca0, type: 3}
       propertyPath: m_Name
-      value: (0, 0)
+      value: 180RoadCorner
       objectReference: {fileID: 0}
     - target: {fileID: 9163040276733651173, guid: f2c22899d0ce4ba4a86c4dc78f8b7ca0, type: 3}
       propertyPath: m_LocalRotation.w
