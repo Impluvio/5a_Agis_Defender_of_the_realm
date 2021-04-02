@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9971830977dcf498ef6d1e4f265491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlacable: 1
+  towerPrefab: {fileID: 3219458064393657486, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  isPlaceable: 1
 --- !u!65 &6301626567026021159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -249,8 +250,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279637745
-  m_fontColor: {r: 0.9433962, g: 0.084549636, b: 0.084549636, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -324,3 +325,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87128170d94a82f4d83d5e2b3500ed8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defautlColor: {r: 1, g: 1, b: 1, a: 1}
+  blockedColor: {r: 1, g: 0, b: 0, a: 1}

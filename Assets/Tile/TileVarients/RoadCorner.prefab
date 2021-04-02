@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: isPlacable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3729440856932274402, guid: a1ea0fe8c3a501d4fb7a8f6c1aa2eb2b, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4709849466414392599, guid: a1ea0fe8c3a501d4fb7a8f6c1aa2eb2b, type: 3}
       propertyPath: m_Mesh
       value: 
