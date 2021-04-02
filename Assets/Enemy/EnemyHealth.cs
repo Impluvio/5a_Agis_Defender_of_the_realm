@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         currentHitpoints = maxHitPoints;
     }
@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour
         currentHitpoints--;
         if (currentHitpoints <= 0) 
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
