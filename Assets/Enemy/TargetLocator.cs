@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
+    [SerializeField] ParticleSystem projectileParticles;
+    [SerializeField] float range = 15f;
     Transform target;
 
     // Update is called once per frame
@@ -36,6 +39,24 @@ public class TargetLocator : MonoBehaviour
 
     void aimWeapon()
     {
+        float targetDistance = Vector3.Distance(transform.position, target.position);
+        
         weapon.LookAt(target);
+        if(targetDistance < range)
+        {
+            Attack(true);
+        }
+        else
+        {
+            Attack(false);
+        }
+    }
+
+    void Attack (bool isActive)
+    {
+        var emissionModule = projectileParticles.emission;
+        emissionModule.enabled = isActive;
+        
+        
     }
 }
