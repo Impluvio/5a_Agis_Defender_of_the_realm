@@ -11,25 +11,34 @@ public class Bank : MonoBehaviour
 
     public int CurrentBalance { get { return currentBalance; } }
 
+    [SerializeField] TextMeshProUGUI displayBalance;
+
 
     void Awake()
     {
-
         currentBalance = startingBalance;
+        updateDisplay();
     }
 
     public void Deposit(int amount)
     {
         currentBalance += Mathf.Abs(amount);
+        updateDisplay();
     }
 
     public void Withdrawal(int amount)
     {
         currentBalance -= Mathf.Abs(amount);
-        if(currentBalance < 0)
+        updateDisplay();
+        if (currentBalance < 0)
         {
             reloadScene();
         }
+    }
+
+    void updateDisplay()
+    {
+        displayBalance.text = "Gold: " + currentBalance;
     }
 
     void reloadScene()
