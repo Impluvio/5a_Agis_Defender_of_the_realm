@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 859814060}
   m_Layer: 0
   m_Name: Path
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1012,7 +1012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7125160206733625807, guid: d9453ead5b09c634ea2f1e5ee3d4f285, type: 3}
       propertyPath: m_TagString
-      value: Path
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9453ead5b09c634ea2f1e5ee3d4f285, type: 3}
@@ -1768,7 +1768,7 @@ GameObject:
   - component: {fileID: 1248613995}
   - component: {fileID: 1248613994}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GoldCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2171,8 +2171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931355ef366018d41a08e6e557b3cff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingBalance: 250
+  startingBalance: 1000
   currentBalance: 0
+  displayBalance: {fileID: 1248613994}
 --- !u!4 &1580887068
 Transform:
   m_ObjectHideFlags: 0
@@ -2363,6 +2364,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5861208421351212280, guid: a1ea0fe8c3a501d4fb7a8f6c1aa2eb2b, type: 3}
   m_PrefabInstance: {fileID: 2046590654}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1894855832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894855833}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894855833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894855832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.000216, y: -0.5, z: 20.000484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1950368605
 PrefabInstance:
   m_ObjectHideFlags: 0
