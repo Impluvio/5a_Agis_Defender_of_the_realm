@@ -10,18 +10,21 @@ using UnityEngine.UI;
 public class CoordinateLabeler : MonoBehaviour
 {
     [SerializeField] Color defaultColor = Color.white;
-    [SerializeField] Color blockedColor = Color.red;
+    [SerializeField] Color blockedColor = Color.black;
+    [SerializeField] Color exploredColor = Color.cyan;
+    [SerializeField] Color pathColor = new Color(1f, 0.5f, 0f);
 
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
-    Waypoint waypoint;
+    GridManager gridManager;
+
 
     void Awake()
     {
+        gridManager = GetComponentInParent<GridManager>();
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
-        waypoint = GetComponentInParent<Waypoint>();
-        currentCoordinates();
+        displayCoordinates();
 
 
     }
@@ -32,7 +35,7 @@ public class CoordinateLabeler : MonoBehaviour
     {
         if(!Application.isPlaying)
         {
-            currentCoordinates();
+            displayCoordinates();
             updateObjectName();
             label.enabled = true;
         }
@@ -43,14 +46,29 @@ public class CoordinateLabeler : MonoBehaviour
 
     void setLabelColor()
     {
-        if (waypoint.IsPlaceable)
-        {
-            label.color = defaultColor;
-        }
-        else
+        if(gridManager == null) { return; }
+
+        Node node = gridManager.getNode(coordinates);
+
+       // if(node == null) { return; }
+        
+        if (!node.isTraversable)
         {
             label.color = blockedColor;
         }
+        else if (node.isPath)
+        {
+            label.color = pathColor;
+        }
+        else if (node.isExplored)
+        {
+            label.color = exploredColor;
+        }
+        else
+        {
+            label.color = defaultColor;
+        }
+       
     }
 
     void toggleLabels()
@@ -61,7 +79,7 @@ public class CoordinateLabeler : MonoBehaviour
         }
     }
 
-    void currentCoordinates()
+    void displayCoordinates()
     {
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
