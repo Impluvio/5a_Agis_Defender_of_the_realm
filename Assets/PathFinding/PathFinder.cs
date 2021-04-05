@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -30,13 +31,15 @@ public class PathFinder : MonoBehaviour
             grid = gridManager.Grid;
         }
 
-        startNode = new Node(startCoordinates, true);
-        destinationNode = new Node(destinationCoordinates, true);
+        
 
     }
     void Start()
     {
-        breathFirstSearch();
+        startNode = gridManager.Grid[startCoordinates];
+        destinationNode = gridManager.Grid[destinationCoordinates];
+        breadthFirstSearch();
+        buildPath();
     }
 
     void exploreNeighbours()
@@ -57,8 +60,10 @@ public class PathFinder : MonoBehaviour
         {
             if (!reached.ContainsKey(neighbour.coordinates) && neighbour.isTraversable)
             {
+                neighbour.connectedTo = currentSearchNode;
                 reached.Add(neighbour.coordinates, neighbour);
                 frontier.Enqueue(neighbour);
+
 
             }
         }
@@ -66,7 +71,7 @@ public class PathFinder : MonoBehaviour
 
     }
 
-    void breathFirstSearch()
+    void breadthFirstSearch()
     {
         bool isRunning = true;
 
@@ -78,10 +83,32 @@ public class PathFinder : MonoBehaviour
             currentSearchNode = frontier.Dequeue();
             currentSearchNode.isExplored = true;
             exploreNeighbours();
+           
             if(currentSearchNode.coordinates == destinationCoordinates)
             {
                 isRunning = false;
             }
         }
     }
+
+    List<Node> buildPath()
+    {
+        List<Node> path = new List<Node>();
+        Node currentNode = destinationNode;
+
+        path.Add(currentNode);
+        currentNode.isPath = true;
+
+        while (currentNode.connectedTo != null)
+        {
+            currentNode = currentNode.connectedTo;
+            path.Add(currentNode);
+            currentNode.isPath = true;
+
+        }
+        path.Reverse();
+
+        return path;
+    }
+
 }
