@@ -21,7 +21,7 @@ public class CoordinateLabeler : MonoBehaviour
 
     void Awake()
     {
-        gridManager = GetComponentInParent<GridManager>();
+        gridManager = FindObjectOfType<GridManager>();
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
         displayCoordinates();
@@ -37,7 +37,7 @@ public class CoordinateLabeler : MonoBehaviour
         {
             displayCoordinates();
             updateObjectName();
-            label.enabled = true;
+            
         }
 
         setLabelColor();
@@ -46,11 +46,15 @@ public class CoordinateLabeler : MonoBehaviour
 
     void setLabelColor()
     {
+        //Debug.Log("does grid manager equal null" + gridManager == null);
+       
         if(gridManager == null) { return; }
 
         Node node = gridManager.getNode(coordinates);
 
-       // if(node == null) { return; }
+       // Debug.Log("is it returning node coords" + node == null);
+
+        if(node == null) { return; }
         
         if (!node.isTraversable)
         {

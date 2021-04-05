@@ -19,6 +19,7 @@ public class GridManager : MonoBehaviour
 
     public Node getNode(Vector2Int coordinates)
     {
+        
         if (grid.ContainsKey(coordinates))
         {
             return grid[coordinates];
@@ -35,7 +36,7 @@ public class GridManager : MonoBehaviour
             {
                 Vector2Int coordinates = new Vector2Int(x, y);
                 grid.Add(coordinates, new Node(coordinates, true));
-                Debug.Log(grid[coordinates].coordinates + " = " + grid[coordinates].isTraversable);
+                // Debug.Log(grid[coordinates].coordinates + " = " + grid[coordinates].isTraversable); //this prints all the coords of the grid.
             }
         }
     }

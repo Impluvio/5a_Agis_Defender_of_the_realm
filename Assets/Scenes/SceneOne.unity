@@ -1888,7 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8bc9461a5e3af742b5463598df388c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: {x: 4, y: 4}
+  gridSize: {x: 5, y: 5}
 --- !u!4 &610981616
 Transform:
   m_ObjectHideFlags: 0
@@ -3434,7 +3434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066781317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -6071,11 +6071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d895771c7b98bd43979c77971ad5d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSearchNode:
-    coordinates: {x: 1, y: 1}
-    isTraversable: 0
-    isExplored: 0
-    isPath: 0
+  startCoordinates: {x: 0, y: 2}
+  destinationCoordinates: {x: 4, y: 1}
 --- !u!1001 &1826365263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6310,6 +6307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 859814060}
     m_Modifications:
+    - target: {fileID: 3815365627729346850, guid: d9f903d45ccf38149973e8eaa474da2e, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6225230741843154232, guid: d9f903d45ccf38149973e8eaa474da2e, type: 3}
       propertyPath: m_RootOrder
       value: 6
