@@ -36,10 +36,13 @@ public class Tile : MonoBehaviour
     {
         if (gridManager.getNode(coordinates).isTraversable && !pathFinder.willBlockPath(coordinates))
         {
-            bool isPlaced = towerPrefab.createTower(towerPrefab, transform.position);
-            //Instantiate(towerPrefab, transform.position, Quaternion.identity);
-            isPlaceable = !isPlaced;
-            gridManager.blockNode(coordinates);
+            bool isSuccessfullyPlaced = towerPrefab.createTower(towerPrefab, transform.position);
+            if (isSuccessfullyPlaced)
+            {
+                gridManager.blockNode(coordinates);
+                pathFinder.notifyRecievers();
+            }
+            
         }
         
     }
