@@ -22,16 +22,10 @@ public class EnemyMover : MonoBehaviour
         pathFinder = FindObjectOfType<PathFinder>();
     }
 
-    void OnEnable()
+    void OnEnable() //Bloody remember adam that this is called when an object or scene is set to active.
     {
-        recalculatePath(true);
         returnToStart();
-
-    }
-
-    private void Start()
-    {
-        
+        recalculatePath(true);
     }
 
     void recalculatePath(bool resetPath)

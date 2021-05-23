@@ -168,5 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dbbaf178f8a6940ba9fb5ac748b772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldReward: 25
+  goldReward: 100
   goldPenalty: 20
