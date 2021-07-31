@@ -42,7 +42,7 @@ public class CoordinateLabeler : MonoBehaviour
 
         setLabelColor();
         toggleLabels();
-        label.enabled = true;
+        label.enabled = false;
     }
 
     void setLabelColor()
